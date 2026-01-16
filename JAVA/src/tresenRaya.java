@@ -1,8 +1,10 @@
+import java.util.Random;
 import java.util.Scanner;
 
 public class tresenRaya {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
+        Random random = new Random();
         int defaultLado=3;
         String [][] tablero = new String[defaultLado][defaultLado];
         for (int i = 0; i < defaultLado; i++) {
@@ -24,7 +26,8 @@ public class tresenRaya {
                 System.out.print(" "+tablero[i][j]+" ");
             }
             System.out.println();
-        }
-
+        } //ESTA PARTE ES LA ASIGNACIÓN DE VALOR EN EL TABLERO/ IMPRIMIR EL TABLERO
+        int jugadoraleatorio= random.nextInt(2);
+        System.out.println("COMIENZA: "+players[jugadoraleatorio]);
     }
 }
