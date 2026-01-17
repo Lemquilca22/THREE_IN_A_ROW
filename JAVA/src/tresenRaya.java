@@ -15,16 +15,16 @@ public class tresenRaya {
         //CREACION DEL PERSONAJE ---------------------------------------------------------------------------------
         String [] players = new String[2];
         System.out.println("3 EN RAYA");
-        System.out.println("JUGADOR 1:");
+        System.out.println("JUGADOR:");
         players[0]=sc.next();
-        System.out.println("JUGADOR 2:");
+        System.out.println("JUGADOR:");
         players[1]=sc.next();
         //REGLAS DE JUEGO Y SELECCION DEL JUGADOR QUE COMIENZA----------------------------------------------------
 
 
         int jugadoraleatorio= random.nextInt(2);
-        System.out.println("EXPLICACIÓN: PARA JUGAR (O) o (X) EN EL TABLERO DEBES SELECCIONAR SU POSICION CON COORDENADAS.");
-        System.out.println("EL TABLERO COMIENZA EN 'O' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
+        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x) EN EL TABLERO DEBES SELECCIONAR SU POSICION CON COORDENADAS.");
+        System.out.println("EL TABLERO COMIENZA EN 'o' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
         System.out.println("EJEMPLO DE UN TURNO: 0 1, 0 2, 1 1");
         System.out.println("TABLERO");
         for (int i = 0; i < defaultLado; i++) {
@@ -43,17 +43,17 @@ public class tresenRaya {
             boolean jugador1 = true;
             //------------------------------------------------------------------------------------------ PLAYER 1
             while (jugador1) {
-                System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (O)");
+                System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (o)");
                 posicionF = sc.nextInt();
                 posicionC = sc.nextInt();
                 //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
                 if (posicionC>=0 && posicionC<defaultLado && posicionF>=0 && posicionF<defaultLado){
                     //--------------------------------------------------------------------CONDICION ESPACIO OCUPADO
-                    if (tablero[posicionF][posicionC]!="O" && tablero[posicionF][posicionC]!="X" ){
+                    if (tablero[posicionF][posicionC]!="o" && tablero[posicionF][posicionC]!="x" ){
                         for (int i = 0; i < defaultLado; i++) {
                             for (int j = 0; j < defaultLado; j++) {
                                 if (i == posicionF && j == posicionC) {
-                                    tablero[i][j] = "O";
+                                    tablero[i][j] = "o";
                                 }
                             }
                         }
@@ -64,10 +64,20 @@ public class tresenRaya {
                             System.out.println();
                         } //---------------------------ACTUALIZA EL TABLERO
                         //-------------------------------------------------COMPROBAR SI GANA
+                        //FILAS Y COLUMNAS
+                        for (int i = 0; i < defaultLado; i++) {
+                            boolean filaCompleta=true; boolean columnaCompleta=true;
+                            for (int j = 0; j < defaultLado; j++) {
+                                if (tablero[i][j]!="o"){ filaCompleta=false;}
+                                if (tablero[j][i]!="o"){ columnaCompleta=false;}
 
-
-
-
+                            }
+                            if (filaCompleta || columnaCompleta) {
+                                System.out.println("GANADOR JUGADOR 1");
+                                juego=false;
+                                jugador1=false;
+                            }
+                        }
                         break;
                     } else {
                         System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
@@ -79,21 +89,22 @@ public class tresenRaya {
                     System.out.println("INGRESA UNA COORDENADA DENTRO DE LOS LIMITES");
                 }
             }
+            if (!juego) break;
 
             //-------------------------------------------------------------------------------------------PLAYER 2
             boolean jugador2 = true;
             while (jugador2) {
-                System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (X)");
+                System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (x)");
                 posicionF = sc.nextInt();
                 posicionC = sc.nextInt();
                 //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
                 if (posicionC>=0 && posicionC<defaultLado && posicionF>=0 && posicionF<defaultLado){
                     //--------------------------------------------------------------------CONDICION ESPACIO OCUPADO
-                    if (tablero[posicionF][posicionC]!="O" && tablero[posicionF][posicionC]!="X" ){
+                    if (tablero[posicionF][posicionC]!="o" && tablero[posicionF][posicionC]!="x" ){
                         for (int i = 0; i < defaultLado; i++) {
                             for (int j = 0; j < defaultLado; j++) {
                                 if (i == posicionF && j == posicionC) {
-                                    tablero[i][j] = "X";
+                                    tablero[i][j] = "x";
                                 }
                             }
                         }
@@ -104,9 +115,18 @@ public class tresenRaya {
                             System.out.println();
                         } //---------------------------ACTUALIZA EL TABLERO
                         //-------------------------------------------COMPROBAR SI GANA LA PARTIDA
-                        
 
-
+                        for (int i = 0; i < defaultLado; i++) {
+                            boolean filaCompleta=true; boolean columnaCompleta=true;
+                            for (int j = 0; j < defaultLado; j++) {
+                                if (tablero[i][j]!="x"){ filaCompleta=false;}
+                                if (tablero[j][i]!="x"){columnaCompleta=false;}
+                            }
+                            if (filaCompleta || columnaCompleta) {
+                                System.out.println("GANADOR JUGADOR 2");
+                                juego=false;
+                            }
+                        }
 
                         break;
                     } else {
@@ -114,7 +134,7 @@ public class tresenRaya {
                         System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
                     }
                 } else {
-                    jugador1=true;
+                    jugador2=true;
                     System.out.println("INGRESA UNA COORDENADA DENTRO DE LOS LIMITES");
                 }
 
