@@ -23,7 +23,7 @@ public class tresenRaya {
 
 
         int jugadoraleatorio= random.nextInt(2);
-        System.out.println("EXPLICACIÓN: PARA JUGAR (O) o (X) DEBES DE HACER CON COORDENADAS.");
+        System.out.println("EXPLICACIÓN: PARA JUGAR (O) o (X) EN EL TABLERO DEBES SELECCIONAR SU POSICION CON COORDENADAS.");
         System.out.println("EL TABLERO COMIENZA EN 'O' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
         System.out.println("EJEMPLO DE UN TURNO: 0 1, 0 2, 1 1");
         System.out.println("TABLERO");
@@ -41,47 +41,84 @@ public class tresenRaya {
         //BUCLE JUEGO --------------------------------------------------------------------------------------------
         while (juego) {
             boolean jugador1 = true;
+            //------------------------------------------------------------------------------------------ PLAYER 1
             while (jugador1) {
                 System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (O)");
                 posicionF = sc.nextInt();
                 posicionC = sc.nextInt();
-                //------------------------------------------------------------------------------------------ PLAYER 1
-                for (int i = 0; i < defaultLado; i++) {
-                    for (int j = 0; j < defaultLado; j++) {
-                        if (i == posicionF && j == posicionC) {
-                            tablero[i][j] = "O";
+                //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
+                if (posicionC>=0 && posicionC<defaultLado && posicionF>=0 && posicionF<defaultLado){
+                    //--------------------------------------------------------------------CONDICION ESPACIO OCUPADO
+                    if (tablero[posicionF][posicionC]!="O" && tablero[posicionF][posicionC]!="X" ){
+                        for (int i = 0; i < defaultLado; i++) {
+                            for (int j = 0; j < defaultLado; j++) {
+                                if (i == posicionF && j == posicionC) {
+                                    tablero[i][j] = "O";
+                                }
+                            }
                         }
+                        for (int i = 0; i < defaultLado; i++) {
+                            for (int j = 0; j < defaultLado; j++) {
+                                System.out.print(" " + tablero[i][j] + " ");
+                            }
+                            System.out.println();
+                        } //---------------------------ACTUALIZA EL TABLERO
+                        //-------------------------------------------------COMPROBAR SI GANA
+
+
+
+
+                        break;
+                    } else {
+                        System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
+                        jugador1=true;
+
                     }
+                } else {
+                    jugador1=true;
+                    System.out.println("INGRESA UNA COORDENADA DENTRO DE LOS LIMITES");
                 }
-                for (int i = 0; i < defaultLado; i++) {
-                    for (int j = 0; j < defaultLado; j++) {
-                        System.out.print(" " + tablero[i][j] + " ");
-                    }
-                    System.out.println();
-                } //---------------------------ACTUALIZA EL TABLERO
-                break;
             }
+
             //-------------------------------------------------------------------------------------------PLAYER 2
             boolean jugador2 = true;
             while (jugador2) {
                 System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (X)");
                 posicionF = sc.nextInt();
                 posicionC = sc.nextInt();
-
-                for (int i = 0; i < defaultLado; i++) {
-                    for (int j = 0; j < defaultLado; j++) {
-                        if (i == posicionF && j == posicionC) {
-                            tablero[i][j] = "X";
+                //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
+                if (posicionC>=0 && posicionC<defaultLado && posicionF>=0 && posicionF<defaultLado){
+                    //--------------------------------------------------------------------CONDICION ESPACIO OCUPADO
+                    if (tablero[posicionF][posicionC]!="O" && tablero[posicionF][posicionC]!="X" ){
+                        for (int i = 0; i < defaultLado; i++) {
+                            for (int j = 0; j < defaultLado; j++) {
+                                if (i == posicionF && j == posicionC) {
+                                    tablero[i][j] = "X";
+                                }
+                            }
                         }
+                        for (int i = 0; i < defaultLado; i++) {
+                            for (int j = 0; j < defaultLado; j++) {
+                                System.out.print(" " + tablero[i][j] + " ");
+                            }
+                            System.out.println();
+                        } //---------------------------ACTUALIZA EL TABLERO
+                        //-------------------------------------------COMPROBAR SI GANA LA PARTIDA
+                        
+
+
+
+                        break;
+                    } else {
+                        jugador2=true;
+                        System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
                     }
+                } else {
+                    jugador1=true;
+                    System.out.println("INGRESA UNA COORDENADA DENTRO DE LOS LIMITES");
                 }
-                for (int i = 0; i < defaultLado; i++) {
-                    for (int j = 0; j < defaultLado; j++) {
-                        System.out.print(" " + tablero[i][j] + " ");
-                    }
-                    System.out.println();
-                } //---------------------------ACTUALIZA EL TABLERO
-                break;
+
+
             }
         }
     }
