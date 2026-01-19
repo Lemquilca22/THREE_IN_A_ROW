@@ -6,13 +6,14 @@ public class tresenRaya {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
-        //VALORES DEFAULT
-        int defaultLado = 3;
-        int partidasNecesarias = 1;
-        int victoriasJ1 = 0;
-        int victoriasJ2 = 0;
+
         boolean game=true;
         while (game){
+            //VALORES DEFAULT
+            int defaultLado = 3;
+            int partidasNecesarias = 1;
+            int victoriasJ1 = 0;
+            int victoriasJ2 = 0;
             boolean opciones=true;
             while (opciones) {
                 System.out.println("1. JUGAR\n2. CONFIGURACIÓN\n3. SALIR");
@@ -38,7 +39,7 @@ public class tresenRaya {
         String [][] tablero = new String[defaultLado][defaultLado];
         //CREACION DEL PERSONAJE ---------------------------------------------------------------------------------
         String [] players = new String[2];
-        System.out.println("3 EN RAYA");
+        System.out.println(defaultLado+" EN RAYA");
         System.out.println("JUGADOR:");
         players[0]=sc.next();
         System.out.println("JUGADOR:");
@@ -48,7 +49,7 @@ public class tresenRaya {
 
         //REGLAS DE JUEGO Y SELECCION DEL JUGADOR QUE COMIENZA----------------------------------------------------
         int jugadoraleatorio= random.nextInt(2);
-        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x) EN EL TABLERO DEBES SELECCIONAR SU POSICION CON COORDENADAS.");
+        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x) EN EL TABLERO DEBES SELECCIONAR UNA CASILLA CON COORDENADAS.");
         System.out.println("EL TABLERO COMIENZA EN 'o' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
         System.out.println("EJEMPLO DE UN TURNO: 0 1, 0 2, 1 1");
 
@@ -63,6 +64,7 @@ public class tresenRaya {
                 System.out.println("GAME OVER");
                 reiniciartablero=false;
             } else {
+                juego=true;
                 for (int i = 0; i < defaultLado; i++) {
                     for (int j = 0; j < defaultLado; j++) {
                         tablero[i][j]="-";
@@ -189,6 +191,14 @@ public class tresenRaya {
             }
         }
             System.out.println("¿VOLVER A JUGAR?");
+        String respuesta=sc.next();
+        if (respuesta.equalsIgnoreCase("si")){
+            game=true;
+        } else {
+            System.out.println("GRACIAS POR JUGAR");
+            return;
+        }
+
         }
 
     }
