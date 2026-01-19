@@ -7,10 +7,33 @@ public class tresenRaya {
         Random random = new Random();
 
         //VALORES DEFAULT
-        int defaultLado=3;
-        int partidasNecesarias=1;
-        int victoriasJ1=0;
-        int victoriasJ2=0;
+        int defaultLado = 3;
+        int partidasNecesarias = 1;
+        int victoriasJ1 = 0;
+        int victoriasJ2 = 0;
+        boolean game=true;
+        while (game){
+            boolean opciones=true;
+            while (opciones) {
+                System.out.println("1. JUGAR\n2. CONFIGURACIÓN\n3. SALIR");
+                int opcionInterfaz = sc.nextInt();
+                switch (opcionInterfaz){
+                    case 1:
+                        opciones=false;
+                        break;
+                    case 2:
+                        System.out.println("TAMAÑO DEL TABLERO: ");
+                        defaultLado=sc.nextInt();
+                        System.out.println("CANTIDAD DE PARTIDAS NECESARIAS PARA GANAR: ");
+                        partidasNecesarias=sc.nextInt();
+                        opciones=false;
+                        break;
+                    case 3:
+                        System.out.println("NOS VEMOS!!");
+                        return;
+                }
+
+            }
 
         String [][] tablero = new String[defaultLado][defaultLado];
         //CREACION DEL PERSONAJE ---------------------------------------------------------------------------------
@@ -164,6 +187,8 @@ public class tresenRaya {
 
                 }
             }
+        }
+            System.out.println("¿VOLVER A JUGAR?");
         }
 
     }
