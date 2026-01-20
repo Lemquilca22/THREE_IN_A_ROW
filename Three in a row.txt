@@ -10,7 +10,11 @@ CONDICION OUT OF BOUND (JUGAR DENTRO DE LOS LIMITES) ✅
 UN IF DE VALIDACION DE TERMINÓ LA PARTIDA 
 (APLICAR LAS CONDICIONES DE GANAR EN EL JUEGO)
 CUANDO GANE UNA PARTIDA ACTUALIZAR EL TABLERO A "-" EN TODOS LOS ESPACIOS. ✅
-Interfaz
-1 jugar. 
-2 configuración. (Modificar los default)
-3 salir.
+Interfaz ✅
+1 jugar. ✅
+2 configuración. (Modificar los default) ✅
+3 salir. ✅
+
+
+CONDICIONAR EL TAMAÑO MINIMO DEL TABLERO 3 y volver a pedir que ingrese.
+INCLUIR LA CONDICION DE EMPATE

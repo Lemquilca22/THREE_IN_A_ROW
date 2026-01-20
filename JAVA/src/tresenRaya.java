@@ -44,19 +44,24 @@ public class tresenRaya {
         players[0]=sc.next();
         System.out.println("JUGADOR:");
         players[1]=sc.next();
-        //---------------------------------------------------------------------------------VICTORIAS NECESARIAS!
-        System.out.println("GANADOR AL MEJOR DE "+partidasNecesarias);
+
 
         //REGLAS DE JUEGO Y SELECCION DEL JUGADOR QUE COMIENZA----------------------------------------------------
         int jugadoraleatorio= random.nextInt(2);
-        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x)  DEBES SELECCIONAR UNA CASILLA EN EL TABLERO CON COORDENADAS.");
+        System.out.println("EXPLICACIÓN: \nPARA JUGAR (o) u (x)  DEBES SELECCIONAR UNA CASILLA EN EL TABLERO CON COORDENADAS.");
         System.out.println("EL TABLERO COMIENZA EN 'o' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
         System.out.println("EJEMPLO DE UN TURNO: 0 1, 0 2, 1 1");
 
         System.out.println();
-        System.out.println("COMIENZA: "+players[jugadoraleatorio]);
+            //---------------------------------------------------------------------------------VICTORIAS NECESARIAS!
+            System.out.println("GANA EL QUE LOGRE "+partidasNecesarias+" VICTORIA(S) PRIMERO");
+        System.out.println("COMIENZA: "+players[jugadoraleatorio]+" ERES EL J1");
+
         boolean reiniciartablero = true;
         boolean juego=true;
+        int movimientos=0;
+        int maxmovimientos=defaultLado*defaultLado;
+
         while (reiniciartablero){
 
             if (victoriasJ1==partidasNecesarias || victoriasJ2==partidasNecesarias){
@@ -65,13 +70,17 @@ public class tresenRaya {
                 reiniciartablero=false;
             } else {
                 juego=true;
+                movimientos=0;
                 for (int i = 0; i < defaultLado; i++) {
                     for (int j = 0; j < defaultLado; j++) {
                         tablero[i][j]="-";
                     }
                 } //ESTA PARTE ES LA ASIGNACIÓN DE VALOR EN EL TABLERO
-                System.out.println("VICTORIAS J1: "+victoriasJ1);
-                System.out.println("VICTORIAS J2: "+victoriasJ2);
+                System.out.println();
+                System.out.println("VICTORIAS");
+                System.out.println("J1: "+victoriasJ1);
+                System.out.println("J2: "+victoriasJ2);
+                System.out.println();
                 System.out.println("TABLERO");
                 for (int i = 0; i < defaultLado; i++) {
                     for (int j = 0; j < defaultLado; j++) {
@@ -79,7 +88,9 @@ public class tresenRaya {
                     }
                     System.out.println();
                 } //IMPRIMIR EL TABLERO
+
             }
+
             //VARIABLES PARA EL JUEGO --------------------------------------------------------------------------------
             int posicionF = 0;
             int posicionC=0;
@@ -88,7 +99,7 @@ public class tresenRaya {
                 boolean jugador1 = true;
                 //------------------------------------------------------------------------------------------ PLAYER 1
                 while (jugador1) {
-                    System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (o)");
+                    System.out.println("J1 ESCOGE LA POSICION DONDE QUIERES PONER (o)");
                     posicionF = sc.nextInt();
                     posicionC = sc.nextInt();
                     //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
@@ -97,8 +108,9 @@ public class tresenRaya {
                         if (tablero[posicionF][posicionC]!="o" && tablero[posicionF][posicionC]!="x" ){
                             for (int i = 0; i < defaultLado; i++) {
                                 for (int j = 0; j < defaultLado; j++) {
-                                    if (i == posicionF && j == posicionC) {
+                                    if (i == posicionF && j == posicionC) { //-------------ASIGNA EL VALOR EN LA COORDENADA
                                         tablero[i][j] = "o";
+                                        movimientos++;
                                     }
                                 }
                             }
@@ -107,7 +119,7 @@ public class tresenRaya {
                                     System.out.print(" " + tablero[i][j] + " ");
                                 }
                                 System.out.println();
-                            } //---------------------------ACTUALIZA EL TABLERO
+                            } //--------------------------------------------------------------------ACTUALIZA EL TABLERO
                             //-------------------------------------------------COMPROBAR SI GANA
                             //FILAS Y COLUMNAS
                             boolean victoria=false;
@@ -141,6 +153,9 @@ public class tresenRaya {
                                 juego=false;
 
                             }
+                            if (movimientos == maxmovimientos) {
+                                System.out.println("¡EMPATE! TABLERO LLENO");
+                                juego = false;}
                             break;
                         } else {
                             System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
@@ -156,7 +171,7 @@ public class tresenRaya {
                 //-------------------------------------------------------------------------------------------PLAYER 2
                 boolean jugador2 = true;
                 while (jugador2) {
-                    System.out.println("ESCOGE LA POSICION DONDE QUIERES PONER (x)");
+                    System.out.println("J2 ESCOGE LA POSICION DONDE QUIERES PONER (x)");
                     posicionF = sc.nextInt();
                     posicionC = sc.nextInt();
                     //------------------------------------------------------------------------CONDICION OUT OF BOUND !!!
@@ -167,6 +182,7 @@ public class tresenRaya {
                                 for (int j = 0; j < defaultLado; j++) {
                                     if (i == posicionF && j == posicionC) {
                                         tablero[i][j] = "x";
+                                        movimientos++;
                                     }
                                 }
                             }
@@ -208,7 +224,11 @@ public class tresenRaya {
                                 victoriasJ2++;
                                 juego=false;
                             }
+                            if (movimientos == maxmovimientos) {
+                                System.out.println("¡EMPATE! TABLERO LLENO");
+                                juego = false;}
                             break;
+
                         } else {
                             System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
                             jugador2=true;
