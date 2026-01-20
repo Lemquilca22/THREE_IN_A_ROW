@@ -178,6 +178,8 @@ public class tresenRaya {
                             } //---------------------------ACTUALIZA EL TABLERO
                             //-------------------------------------------COMPROBAR SI GANA LA PARTIDA
 
+                            //-------------------------------------------FILAS Y COLUMNAS
+                            boolean victoria2=false;
                             for (int i = 0; i < defaultLado; i++) {
                                 boolean filaCompleta=true; boolean columnaCompleta=true;
                                 for (int j = 0; j < defaultLado; j++) {
@@ -185,23 +187,36 @@ public class tresenRaya {
                                     if (tablero[j][i]!="x"){columnaCompleta=false;}
                                 }
                                 if (filaCompleta || columnaCompleta) {
-                                    System.out.println("GANADOR JUGADOR 2");
-                                    victoriasJ2++;
-                                    juego=false;
-                                    jugador2 = false;
+                                    victoria2=true;
                                 }
                             }
+                            //------------------------------------------------COMPROBAR DIAGONALES!!
 
+                            boolean diagonal1=true; boolean diagonal2=true;
+                            for (int i = 0; i < defaultLado; i++) {
+                                if (tablero[i][i]!="x"){ diagonal1=false;}
+                                if (tablero[i][defaultLado-1-i]!="x"){ diagonal2=false;}
+
+                            }
+                            if (diagonal1 || diagonal2) {
+                                victoria2=true;
+                            }
+
+                            //------------------------------------------------EL BOOLEAN VICTORIA ES MI CONDICIÓN PARA SALIR DEL BUCLE JUEGO
+                            if (victoria2) {
+                                System.out.println("RONDA TERMINADA\nJUGADOR 2: +1 VICTORIA");
+                                victoriasJ2++;
+                                juego=false;
+                            }
                             break;
                         } else {
-                            jugador2=true;
                             System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
+                            jugador2=true;
                         }
                     } else {
                         jugador2=true;
                         System.out.println("INGRESA UNA COORDENADA DENTRO DE LOS LIMITES");
                     }
-
 
                 }
             }
