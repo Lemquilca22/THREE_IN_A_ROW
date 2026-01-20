@@ -45,11 +45,11 @@ public class tresenRaya {
         System.out.println("JUGADOR:");
         players[1]=sc.next();
         //---------------------------------------------------------------------------------VICTORIAS NECESARIAS!
-        System.out.println("JUGADOR AL MEJOR DE "+partidasNecesarias);
+        System.out.println("GANADOR AL MEJOR DE "+partidasNecesarias);
 
         //REGLAS DE JUEGO Y SELECCION DEL JUGADOR QUE COMIENZA----------------------------------------------------
         int jugadoraleatorio= random.nextInt(2);
-        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x) EN EL TABLERO DEBES SELECCIONAR UNA CASILLA CON COORDENADAS.");
+        System.out.println("EXPLICACIÓN: PARA JUGAR (o) u (x)  DEBES SELECCIONAR UNA CASILLA EN EL TABLERO CON COORDENADAS.");
         System.out.println("EL TABLERO COMIENZA EN 'o' HORIZONTALMENTE Y TERMINA EN '"+(defaultLado-1)+"' Y LO MISMO OCURRE DE FORMA VERTICAL");
         System.out.println("EJEMPLO DE UN TURNO: 0 1, 0 2, 1 1");
 
@@ -110,6 +110,7 @@ public class tresenRaya {
                             } //---------------------------ACTUALIZA EL TABLERO
                             //-------------------------------------------------COMPROBAR SI GANA
                             //FILAS Y COLUMNAS
+                            boolean victoria=false;
                             for (int i = 0; i < defaultLado; i++) {
                                 boolean filaCompleta=true; boolean columnaCompleta=true;
                                 for (int j = 0; j < defaultLado; j++) {
@@ -118,17 +119,32 @@ public class tresenRaya {
 
                                 }
                                 if (filaCompleta || columnaCompleta) {
-                                    System.out.println("GANADOR JUGADOR 1");
-                                    victoriasJ1++;
-                                    juego=false;
-                                    jugador1=false;
+                                    victoria=true;
                                 }
+                            }
+                            //------------------------------------------------COMPROBAR DIAGONALES!!
+
+                                boolean diagonal1=true; boolean diagonal2=true;
+                                for (int i = 0; i < defaultLado; i++) {
+                                    if (tablero[i][i]!="o"){ diagonal1=false;}
+                                    if (tablero[i][defaultLado-1-i]!="o"){ diagonal2=false;}
+
+                                }
+                                if (diagonal1 || diagonal2) {
+                                    victoria=true;
+                                }
+
+                            //------------------------------------------------EL BOOLEAN VICTORIA ES MI CONDICIÓN PARA SALIR DEL BUCLE JUEGO
+                            if (victoria) {
+                                System.out.println("RONDA TERMINADA\nJUGADOR 1: +1 VICTORIA");
+                                victoriasJ1++;
+                                juego=false;
+
                             }
                             break;
                         } else {
                             System.out.println("ESTA CASILLA YA ESTA OCUPADA, INGRESA OTRO VALOR");
                             jugador1=true;
-
                         }
                     } else {
                         jugador1=true;
@@ -195,7 +211,7 @@ public class tresenRaya {
         if (respuesta.equalsIgnoreCase("si")){
             game=true;
         } else {
-            System.out.println("GRACIAS POR JUGAR");
+            System.out.println("GRACIAS POR JUGAR (SI/NO)");
             return;
         }
 
