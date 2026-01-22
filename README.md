@@ -8,6 +8,7 @@ El "Three in a row" también conocido como "3 en raya" en español o "michi" en 
 2. CONFIGURACIÓN:
    
    Al entrar en configuración primero puedes modificar el tamaño del lado del tablero, es decir (4x4, 5x5, 6x6, etc). Al hacerlo también modificas las condiciones para ganar, por ejemplo si seleccionaste 4, entonces tendrás que formar 4 en raya para poder Ganar.
+
    Luego de configurar el tamaño del tablero, se asigna la cantidad de partidas necesarias para poder ganar (2, 3, 4, o 5... etc.). 
 5. SALIR
    
