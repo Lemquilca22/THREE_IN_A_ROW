@@ -25,6 +25,10 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
 
    ### MOVERSE EN EL TABLERO
 
+   A diferencia del tres en raya clasico donde dibujamos nuestras fichas con papel y boli o un marcador, en esta versión debemos hacerlo por coordenadas ¿Qué quiere decir eso?
+   
+   Si tenemos un tablero de 3x3 entonces tendremos 9 espacios para colocar "o" u "x". ¿Entonces es tan facil como poner 1 y 3 si quiero poner mi ficha en la primera fila y 3 columna?
+
    
 
    
