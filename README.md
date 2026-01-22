@@ -19,4 +19,5 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
 ## COMO JUGAR 
 
    Ya que es de 2 jugadores ingresamos los nombre que queremos tener en la partida, no importa mucho el orden de quien lo haga primero o segundo.
+   
    La razón por la cual no importa en ese momento el orden es porque al iniciar el Juego, de manera aleatoria la maquina elige quien empieza el juego, siendo "o" la ficha con la que ha de jugar el J1
