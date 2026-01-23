@@ -21,7 +21,7 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
    ### JUGADORES
    Primero ingresamos los nombre que queremos tener en la partida, no importa mucho el orden de quien lo haga primero o segundo.
    
-   La razón por la cual no importa el orden en ese momento es porque al iniciar el Juego la maquina elige quien empieza el juego de manera aleatoria , siendo "o" la ficha con la que ha de jugar el J1
+   La razón por la cual no importa el orden en ese momento es porque al iniciar el Juego la maquina elige quien empieza el juego de manera aleatoria , siendo "o" la ficha con la que ha de jugar el J1. Cuando termina el J1 de hacer su jugada inmediatamente el J2 debe ingresar donde colocar la ficha. 
 
    ### MOVERSE EN EL TABLERO
 
@@ -31,7 +31,7 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
 
    No, las coordenas de este tablero 3x3 van del (0-2) siendo 0 el primer valor y 2 el último, esto se aplica a Filas y columnas.
 
-   EJEMPLO: Si quiero coloar el "o" en el centro del tablero debo ingresar uno, dejo un espacio, y nuevamente 1, algo así (1 1), el primer valor es la fila y el segundo la columna.
+   EJEMPLO: Si quiero colocar el "o" en el centro del tablero debo ingresar uno, dejo un espacio, y nuevamente 1, algo así (1 1), el primer valor es la fila y el segundo la columna.
    
 
    
