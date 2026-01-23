@@ -21,7 +21,7 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
    ### JUGADORES
    Primero ingresamos los nombre que queremos tener en la partida, no importa mucho el orden de quien lo haga primero o segundo.
    
-   La razón por la cual no importa el orden en ese momento es porque al iniciar el Juego la maquina elige quien empieza el juego de manera aleatoria , siendo "o" la ficha con la que ha de jugar el J1. Cuando termina el J1 de hacer su jugada inmediatamente el J2 debe ingresar donde colocar la ficha. 
+   La razón por la cual no importa el orden en ese momento es porque al iniciar el Juego la maquina elige quien empieza el juego de manera aleatoria , siendo "o" la ficha con la que ha de jugar el J1. 
 
    ### MOVERSE EN EL TABLERO
 
@@ -31,7 +31,19 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
 
    No, las coordenas de este tablero 3x3 van del (0-2) siendo 0 el primer valor y 2 el último, esto se aplica a Filas y columnas.
 
-   EJEMPLO: Si quiero colocar el "o" en el centro del tablero debo ingresar uno, dejo un espacio, y nuevamente 1, algo así (1 1), el primer valor es la fila y el segundo la columna.
+   EJEMPLO: Si quiero colocar el "o" en el centro del tablero debo ingresar 1, dejo un espacio, y nuevamente 1, algo así (1 1), el primer valor es la fila y el segundo la columna.
+
+   ### GAME OVER Y RESUMEN
+
+   Entonces el juego comienza; cada jugador ingresa la posición donde quiere poner su ficha (ojo, si la posición esta ocupada debes ingresar nuevamente el valor) el que consiga primero 3 en raya, sumará una victoria, dependiendo de la cantidad de victorias necesarias para ganar sucederña lo siguiente:
+
+   Si la cantidad de Victorias necesarias es solo 1, entonces el primer jugador que forme 3 en raya gana. (PUEDES VOLVER A JUGAR SI TIENES SED DE REVANCHA).
+   Si la cantidad de Victorias es superior a 1, en cada ronda sumas victorias(+1) y se reinicia el tablero para volver a jugar, hasta que se cumpla la condición de partidas necesarias para ganar.
+   Casi me olvido, ¿Y si ninguno consigue hacer 3 en raya? Pues... se reinicia el tablero y volvemos a Jugar hasta que alguien consiga 3 en raya, "en el empate no se suman puntos".
+
+   
+
+   
    
 
    
