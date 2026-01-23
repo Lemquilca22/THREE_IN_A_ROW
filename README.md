@@ -38,7 +38,9 @@ Para acceder a uno de estos apartados debes ingresar el número, que corresponda
    Entonces el juego comienza; cada jugador ingresa la posición donde quiere poner su ficha (ojo, si la posición esta ocupada debes ingresar nuevamente el valor), a continuación según las condiciones para poder ganar:
 
    Si la cantidad de Victorias necesarias es solo 1, entonces el primer jugador que forme 3 en raya gana, se acaba la partida.. (PUEDES VOLVER A JUGAR SI TIENES SED DE REVANCHA).
+   
    Si la cantidad de Victorias es superior a 1, entonces en cada ronda sumas victorias(+1) y se reiniciará el tablero para volver a jugar después de cada victoria, esto hasta que se cumpla la condición de partidas necesarias para ganar, cuando eso sucede GAME OVER!
+   
    Casi me olvido, ¿Y si ninguno consigue hacer 3 en raya? Pues... se reinicia el tablero y volvemos a Jugar hasta que alguien consiga 3 en raya, "en el empate no se suman puntos".
 
    
