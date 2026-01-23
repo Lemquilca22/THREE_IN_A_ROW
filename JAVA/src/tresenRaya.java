@@ -6,14 +6,14 @@ public class tresenRaya {
         Scanner sc = new Scanner(System.in);
         Random random = new Random();
 
-
+        int defaultLado = 3;
+        int partidasNecesarias = 1;
+        int victoriasJ1 = 0;
+        int victoriasJ2 = 0;
         boolean game=true;
         while (game){
             //VALORES DEFAULT
-            int defaultLado = 3;
-            int partidasNecesarias = 1;
-            int victoriasJ1 = 0;
-            int victoriasJ2 = 0;
+
             boolean opciones=true;
             while (opciones) {
                 System.out.println("1. JUGAR\n2. CONFIGURACIÓN\n3. SALIR");
@@ -23,11 +23,11 @@ public class tresenRaya {
                         opciones=false;
                         break;
                     case 2:
-                        System.out.println("TAMAÑO DEL TABLERO: ");
+                        System.out.println("TAMAÑO DEL TABLERO (Valor minimo 3): ");
                         defaultLado=sc.nextInt();
-                        System.out.println("CANTIDAD DE PARTIDAS NECESARIAS PARA GANAR: ");
+                        System.out.println("CANTIDAD DE PARTIDAS NECESARIAS PARA GANAR (Valor por default 1): ");
                         partidasNecesarias=sc.nextInt();
-                        opciones=false;
+                        opciones=true;
                         break;
                     case 3:
                         System.out.println("NOS VEMOS!!");
